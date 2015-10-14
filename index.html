@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- include CSS -->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<!-- include vendor CSS -->
+<link rel="stylesheet" href="css/vendor/jquery-ui.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+
+<!-- include modernizr -->
+<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+<!--[ IE8 crap ]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- section : todo -->
+<div class="task-list" id="pending">
+<h4>Todo</h4>
+<div class="ruler"></div>
+</div>
+
+<!-- section : work in progress -->
+<div class="task-list" id="inProgress">
+<h4>In progress</h4>
+<div class="ruler"></div>
+</div>
+
+<!-- section : done -->
+<div class="task-list" id="completed">
+<h4>Done</h4>
+<div class="ruler"></div>
+</div>
+
+<!-- interaction  : trashcan trigger -->
+<div id="trash-area" class="interaction-element"><span class="glyphicon glyphicon-trash" id="icon-trash"></span></div>
+
+<!-- interaction : add a new item to the todo list -->
+<button type="button" class="btn btn-default btn-default interaction-addButton" onclick="app_showForm()">
+<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+New task
+</button>
+
+<!-- interaction : reload the page -->
+<button type="button" class="btn btn-default btn-default interaction-refreshButton" onclick="app_refresh()">
+<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+Refresh
+</button>
+
+<!-- interaction : refresh the wallpaper -->
+<button type="button" class="btn btn-default btn-default interaction-refreshWallpaperButton" onclick="app_wallpaper_refresh()">
+<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+Random wallpaper yay !
+</button>
+
+<!-- wallpaper layer -->
+<div class="wallpaperPlaceholder" id="wall1"></div>
+<div class="wallpaperPlaceholder" id="wall2"></div>
+<div class="wallpaperPlaceholder" id="wall3"></div>
+<div class="wallpaperPlaceholder" id="wall4"></div>
+<!-- opaque layer -->
+<div id="interaction-fader"></div>
+<!-- interaction panel : open -->
+<div id="interaction-panel" class="task-list">
+<h4>Neue Aufgabe</h4>
+<!-- interaction panel : form > create new todo item -->
+<form id="todo-form">
+<input type="text" placeholder="Titel" />
+<textarea placeholder="Kurze Beschreibung"></textarea>
+<input id="datepicker" type="text" placeholder="Frist" />
+<input type="button" class="btn btn-primary" value="Clear Data" onclick="this.form.reset()"/>
+<input type="button" class="btn btn-default" value="Add Task" onclick="app_addTodoItem()"/>
+</form>
+
+<!-- interaction panel : close -->
+</div>
+
+<!-- section : done -->
+<div class="task-help" id="info">
+<h5>Simple task manager with localstorage support.</h5>
+<ul>
+<li>the task lists are draggable</li>
+<li>the tasks themselves can be dragged to other lists </li>
+<li>a task can be deleted by clicking on the "minus" icon or be dropped into the trashcan</li>
+<li>data is stored in the local storage</li>
+<li>wallpapers can be dynamically swapped</li>
+<li>used H5BP , Bootstrap , Jquery , JqueryUI </li>
+<li>sadly its not mobile friendly ( yet ) </li>
+<li>not very optimized , still a lot to do :( </li>
+</ul>
+
+</div>
+<!-- JS : include JS -->
+<script src="js/vendor/jquery-1.11.3.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<!-- JS : init app -->
+<script type="text/javascript">
+app_initApp();
+</script>
+
+</body>
+</html>
