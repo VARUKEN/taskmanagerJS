@@ -1,0 +1,27 @@
+{
+  "name": "taspanager-js",
+  "version": "1.0.0",
+  "description": "A simple taskmanager influenced by trello and used as a playground to dive deeper in frontend shenanigans",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meodai/taskmanagerJS.git"
+  },
+  "author": "meodai <meodai@gmail.com> (https://github.com/meodai/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meodai/taskmanagerJS/issues"
+  },
+  "homepage": "https://github.com/meodai/taskmanagerJS#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "gulp": "^3.9.0",
+    "gulp-webpack": "^1.5.0",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
+    "modernizr": "^3.1.0"
+  }
+}
