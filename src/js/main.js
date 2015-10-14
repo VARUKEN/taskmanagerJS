@@ -1,6 +1,7 @@
-// makes sure jquery & jquery UI are around
+// makes sure bootstrap, jquery & jquery UI are around
 $ = require('jquery');
 require("jquery-ui");
+require("bootstrap");
 
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	init
