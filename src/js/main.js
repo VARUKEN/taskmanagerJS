@@ -1,3 +1,7 @@
+// makes sure jquery & jquery UI are around
+$ = require('jquery');
+require("jquery-ui");
+
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	init
 //	---------------------------------------------------------------------------------------------------------------------------------------------
@@ -18,7 +22,7 @@ reloadDiv: "reload_trigger",
 deleteButton: "glyphicon glyphicon-minus-sign",
 itemForm: "interaction-panel",
 itemFormFader: "interaction-fader"
-}, 
+},
 codes = {
 "1" : "#pending", // For pending tasks
 "2" : "#inProgress",
@@ -37,16 +41,16 @@ var app_initApp = function()
 //	var options = options || {};
 //	options = $.extend({}, defaults, options);
 //	data : populate the item lists
-$.each(data, function (index, params) 
+$.each(data, function (index, params)
 {
 app_createElement(params);
 });
 //	dragndrop : the (drop) actions for the 3 states of the item columns
-$.each(codes, function(index, value) 
+$.each(codes, function(index, value)
 {
 $(value).droppable(
 {
-drop: function(event, ui) 
+drop: function(event, ui)
 {
 //	data
 var element = ui.helper,
@@ -71,7 +75,7 @@ app_hideTrash();
 //	dragndrop : the (drop) action for the delete process
 $("#" + options.deleteDiv).droppable(
 {
-drop: function(event, ui) 
+drop: function(event, ui)
 {
 //	get the dragged element
 var element = ui.helper,
@@ -109,14 +113,14 @@ var data = JSON.parse(localStorage.getItem("taskDataSet"));
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	add a new todo item
 //	---------------------------------------------------------------------------------------------------------------------------------------------
-var app_addTodoItem = function() 
+var app_addTodoItem = function()
 {
 //	form : read the input values
 var inputs = $("#" + defaults.formId + " :input"),
 errorMessage = "Title can not be empty",
 id, title, description, date, tempData;
 //	form : make sure that we got all values
-if (inputs.length !== 5) 
+if (inputs.length !== 5)
 {
 return;
 }
@@ -131,7 +135,7 @@ return;
 }
 //	dataset : get the current time -> this will be used as the unique identifier for the item dataset
 id = new Date().getTime();
-//	dataset : create a new dataset 
+//	dataset : create a new dataset
 tempData = {
 id : id,
 code: "1",
@@ -152,17 +156,17 @@ inputs[2].value = "";
 app_hideForm();
 };
 //	---------------------------------------------------------------------------------------------------------------------------------------------
-//	display a message or notification 
+//	display a message or notification
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 var app_displayMessage = function(message)
 {
-alert(message);	
+alert(message);
 };
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	create a new item in the list
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	add Task
-var app_createElement = function(params) 
+var app_createElement = function(params)
 {
 //	init
 var parent = $(codes[params.code]),wrapper;
@@ -202,7 +206,7 @@ $("<div />", {
 "text": params.description
 }).appendTo(wrapper);
 
-//	item : drag interaction 
+//	item : drag interaction
 wrapper.draggable({
 start: function() {
 //$("#" + defaults.deleteDiv).show();
@@ -227,8 +231,8 @@ $("#" + defaults.taskId + params.id).remove();
 //	---------------------------------------------------------------------------------------------------------------------------------------------
 //	delete an item in local storage and add a fadeout effect before removing the element at all
 //	---------------------------------------------------------------------------------------------------------------------------------------------
-var app_deleteItem = function(elementID) 
-{ 
+var app_deleteItem = function(elementID)
+{
 //	remove the element from the list now
 var css_id = defaults.taskId + elementID;
 $("#" + css_id).fadeOut( 'fast' , function() { app_removeElement({ id: css_id }) });
@@ -269,17 +273,17 @@ $("#" + defaults.itemFormFader).fadeOut();
 }
 var app_refresh = function()
 {
-location.reload();		
+location.reload();
 }
 
 var app_wallpaper_refresh = function(target)
 {
-	if ( target == null ) 
+	if ( target == null )
 	{
 		var rnd = Math.floor((Math.random() * 4) + 1);
 		$('.wallpaperPlaceholder').fadeOut();
 		$('#wall'+rnd).fadeIn();
-	
+
 	}
 	else
 	{
@@ -288,5 +292,5 @@ var app_wallpaper_refresh = function(target)
 	}
 }
 
-	
-	
+
+
